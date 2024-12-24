@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Contribution Graphs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style for the select container */
+        .select-container {
+            margin-bottom: 20px;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Styling for the tab contents */
+        .tab-content-container {
+            display: none;
+            padding: 20px;
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+        }
+
+        /* Style for the images inside the tabs */
+        .graphs-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .graphs-container .contributor-item {
+            margin: 10px;
+            text-align: center;
+            flex-basis: 250px;
+        }
+
+        .graphs-container img {
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Git Contribution Graphs</h1>
+<div class="select-container">
+    <label for="period-select">Select Period:</label>
+    <select id="period-select" onchange="showSelectedPeriod()">
+        <option value="">--Select Period--</option>
+        <!-- TABS_PLACEHOLDER -->
+    </select>
+</div>
+
+<!-- Tab Content Containers -->
+<!-- Content will be dynamically injected here -->
+<!-- TAB_CONTENT_PLACEHOLDER -->
+
+<script>
+    // Function to show the selected period's content
+    function showSelectedPeriod() {
+        var selectedValue = document.getElementById("period-select").value;
+
+        // Hide all content containers
+        var allContents = document.querySelectorAll(".tab-content-container");
+        allContents.forEach(function(content) {
+            content.style.display = "none";
+        });
+
+        // Show the selected content
+        if (selectedValue) {
+            var selectedContent = document.getElementById("content-" + selectedValue);
+            if (selectedContent) {
+                selectedContent.style.display = "block";
+            }
+        }
+    }
+
+    // Show the first period's content by default
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("period-select").value = "last_year"; // Set the default period
+        showSelectedPeriod(); // Show the first content by default
+    });
+</script>
+</body>
+</html>

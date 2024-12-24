@@ -1,0 +1,13 @@
+services:
+  git-log-service:
+    container_name: git-log-container
+    build:
+      dockerfile: .Dockerfile
+    volumes:
+      - ../.git:/app/.data/.git
+      - ./scripts:/app/scripts
+      - ./out:/app/out  # This will mount the .data directory to be accessible from the host
+    working_dir: /app/scripts
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: python3 plot.py  # This will execute the plot.py script when the container starts
