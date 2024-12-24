@@ -12,7 +12,7 @@ This project analyzes Git contributions of the repository it is included in. It 
 1. **Add as a Submodule**:
    Add this repository as a submodule to your project, placing it in a `.contrib` directory located at the root of your project, at the same level as the `.git` directory:
    ```bash
-   git submodule add <repository-url> .contrib
+   git submodule add https://github.com/Multidialogo/git-squid .contrib
    ```
 
 2. **Initialize and Update Submodules**:
