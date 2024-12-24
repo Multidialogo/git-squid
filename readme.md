@@ -97,5 +97,8 @@ Contains HTML templates to generate the `index.html` file dynamically.
 ## Contributions
 Feel free to fork this repository, suggest improvements, or report issues. Contributions are always welcome!
 
+[Contribution guideline](contributing.md)
+
+
 ## License
 [MIT License](LICENSE)
